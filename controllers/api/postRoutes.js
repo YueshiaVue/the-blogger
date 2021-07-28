@@ -7,6 +7,9 @@ router.post('/', withAuth, async (req, res) => {
     const newProject = await Project.create({
       ...req.body,
       user_id: req.session.user_id,
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
+      // id: '',
     });
 
     res.status(200).json(newProject);
