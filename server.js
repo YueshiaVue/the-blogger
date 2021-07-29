@@ -38,6 +38,10 @@ app.get('/', function (req, res) {
     res.render('login');
 });
 
+app.get('/profile', function (req, res) {
+  res.render('profile');
+});
+
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {

@@ -4,6 +4,7 @@ const loginFormHandler = async (event) => {
   const password = document.querySelector('#password-login').value.trim();
 
   if (email && password) {
+    console.log('user credential',{email,password})
     const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
@@ -21,20 +22,24 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const user_name = document.querySelector('#name-signup').value.trim();
-  const user_email = document.querySelector('#email-signup').value.trim();
-  const user_password = document.querySelector('#password-signup').value.trim();
+  const username = document.querySelector('#name-signup').value.trim();
+  const email = document.querySelector('#email-signup').value.trim();
+  const password = document.querySelector('#password-signup').value.trim();
 
-  if (user_name && user_email && user_password) {
+  if (email && username && password) {
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ user_name, user_email, user_password }),
+      body: JSON.stringify({ username, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
     console.log(response)
 
     if (response.ok) {
       document.location.replace('/profile');
+      let usernameEl = document.getElementById('username');
+      usernameEl.innerHTML = username;
+      let emailEl = document.getElementById('email');
+      emailEl.innerHTML = email;
     } else {
       alert(response.statusText);
     }
