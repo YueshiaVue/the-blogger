@@ -5,37 +5,37 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
 
-    const postData = await Post.findAll({
-      include: [
-        {
-          model: Post,
-          attributes: ["title"]
-        },
-        {
-          model: Post,
-          attributes: ["body"]
-        },
-        {
-          model: Post,
-          attributes: ["createdAt"]
-        },
-        {
-          model: Post,
-          attributes: ["updatedAt"]
-        }
-      ],
-    });
-    const post = postData.map(async post => {
-      let userid = post.user_id;
-      let userData = await Post.findByPk(userid, {
-        include: [
-          {
-            model: User,
-            attributes: ['user_name'],
-          }],
-      });
-      return {...post,userData};
-    })
+    // const postData = await Post.findAll({
+    //   include: [
+    //     {
+    //       model: Post,
+    //       attributes: ["title"]
+    //     },
+    //     {
+    //       model: Post,
+    //       attributes: ["body"]
+    //     },
+    //     {
+    //       model: Post,
+    //       attributes: ["createdAt"]
+    //     },
+    //     {
+    //       model: Post,
+    //       attributes: ["updatedAt"]
+    //     }
+    //   ],
+    // });
+    // const post = postData.map(async post => {
+    //   let userid = post.user_id;
+    //   let userData = await Post.findByPk(userid, {
+    //     include: [
+    //       {
+    //         model: User,
+    //         attributes: ['user_name'],
+    //       }],
+    //   });
+    //   return {...post,userData};
+    // })
     
     // const projects = postData.map((post) => post.get({ plain: true }));
 

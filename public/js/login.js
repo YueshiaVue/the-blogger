@@ -36,20 +36,19 @@ const signupFormHandler = async (event) => {
 
     if (response.ok) {
       document.location.replace('/profile');
-      let usernameEl = document.getElementById('username');
-      usernameEl.innerHTML = username;
-      let emailEl = document.getElementById('email');
-      emailEl.innerHTML = email;
     } else {
       alert(response.statusText);
     }
   }
 };
 
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+let loginForm = document.querySelector('.login-form');
+if(loginForm) {
+  loginForm.addEventListener('submit', loginFormHandler);
+}
+  
+let signupForm = document.querySelector('.signup-form');
 
-document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
+if(signupForm) {
+  signupForm.addEventListener('submit', signupFormHandler);
+}

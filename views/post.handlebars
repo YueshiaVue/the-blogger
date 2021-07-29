@@ -1,4 +1,4 @@
-<h2>Post</h2>
+{{!-- <h2>Post</h2>
 
 <form class='post-container'>
         <div class="form-group">
@@ -9,9 +9,29 @@
             <label for="post-body-input" class="createformlabel">Comment:</label>
             <input  class="form-input" type="text" id="post-body-input" />
         </div>
+        
 </form>
+<button class="btn btn-warning" type="button" id="post-button">posts</button> --}}
 
-<button class="btn btn-warning" type="button" id="post-button">posts</button>
+<div class="row">
+  <div class="col-md-6">
+    <h2>Post</h2>
+
+    <form class="form post-container">
+        <div class="form-group">
+            <label for="post-title-input">Title:</label>
+            <input class="form-input" type="text" id="post-title-input" />
+        </div>
+        <div class="form-group">
+            <label for="post-body-input" class="createformlabel">Comment:</label>
+            <input  class="form-input" type="text" id="post-body-input" />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-warning" type="button" id="post-button">posts</button>
+        </div>
+    </form>
+  </div>
+</div>
 
 {{!-- <script src="js/api.js"></script> --}}
 <script src="js/index.js"></script>

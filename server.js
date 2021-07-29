@@ -28,18 +28,21 @@ app.use(session(sess));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-
-
+// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/public'));
 app.engine('handlebars', hbs.engine);  
 app.set('view engine', 'handlebars');
 
 app.get('/', function (req, res) {
-    res.render('login');
+    res.render('login',{logged_in: false});
 });
 
 app.get('/profile', function (req, res) {
-  res.render('profile');
+  res.render('profile',{logged_in: true});
+});
+
+app.get('/post', function (req, res) {
+  res.render('post');
 });
 
 app.use(routes);
