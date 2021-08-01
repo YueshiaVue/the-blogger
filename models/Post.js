@@ -8,7 +8,8 @@ Post.init(
     title: DataTypes.STRING,
     body: DataTypes.STRING,
     createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE
+    updatedAt: DataTypes.DATE,
+    user_id: DataTypes.INTEGER
   },
   {
     sequelize
